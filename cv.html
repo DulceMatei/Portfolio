@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV - Dulce Matei-Ionuț</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-teal: #14B8A6;
+      --primary-teal-dark: #0F766E;
+      --accent-cyan: #06B6D4;
+      --bg-dark: #0F172A;
+      --bg-darker: #020617;
+      --card-bg: #1E293B;
+      --card-hover: #334155;
+      --text-primary: #F8FAFC;
+      --text-secondary: #CBD5E1;
+      --text-muted: #94A3B8;
+      --border-color: #334155;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --error: #EF4444;
+      
+      --spacing-xs: 4px;
+      --spacing-sm: 8px;
+      --spacing-md: 16px;
+      --spacing-lg: 24px;
+      --spacing-xl: 32px;
+      --spacing-2xl: 48px;
+      --spacing-3xl: 64px;
+      
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-full: 9999px;
+      
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+      color: var(--text-primary);
+      overflow-x: hidden;
+    }
+
+    /* Header Styles */
+    header {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: var(--spacing-md) var(--spacing-xl);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      background: rgba(15, 23, 42, 0.98);
+      box-shadow: var(--shadow-lg);
+    }
+
+    header .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary-teal);
+      transition: all 0.3s ease;
+    }
+
+    header .logo:hover {
+      color: var(--accent-cyan);
+      transform: scale(1.05);
+    }
+
+    header nav {
+      display: flex;
+      gap: var(--spacing-xl);
+    }
+
+    header nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-radius: var(--radius-md);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    header nav a:hover {
+      color: var(--primary-teal);
+      background: rgba(20, 184, 166, 0.1);
+      transform: translateY(-1px);
+    }
+
+    header nav a.active {
+      color: var(--primary-teal);
+      background: rgba(20, 184, 166, 0.15);
+    }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: var(--spacing-sm);
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: var(--text-primary);
+      margin: 3px 0;
+      transition: 0.3s;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Section Styles */
+    section {
+      padding: var(--spacing-3xl) var(--spacing-lg);
+      max-width: 1200px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Hero Section */
+    #home {
+      text-align: center;
+      padding-top: 120px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    #home::before {
+  background: radial-gradient(circle at 30% 50%, rgba(20, 184, 166, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+}
+
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+    }
+
+    .project-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3; 
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      margin-bottom: var(--spacing-md);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .project-card img {
+        aspect-ratio: auto; 
+        height: 200px;      
+      }
+    }
+
+
+
+    #home .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    #home img {
+      width: 280px;
+      height: 280px;
+      border-radius: var(--radius-full);
+      object-fit: cover;
+      margin-bottom: var(--spacing-xl);
+      border: 6px solid var(--primary-teal);
+      box-shadow: var(--shadow-xl), 
+                  0 0 0 12px rgba(20, 184, 166, 0.15),
+                  0 0 40px rgba(20, 184, 166, 0.3),
+                  inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+      transition: all 0.4s ease;
+      animation: float 3s ease-in-out infinite;
+      position: relative;
+    }
+
+    #home img::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: linear-gradient(45deg, var(--primary-teal), var(--accent-cyan), var(--primary-teal));
+      border-radius: var(--radius-full);
+      z-index: -1;
+      opacity: 0.3;
+      animation: rotate 4s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    #home img:hover {
+      transform: scale(1.08);
+      box-shadow: var(--shadow-xl), 
+                  0 0 0 16px rgba(20, 184, 166, 0.2),
+                  0 0 60px rgba(20, 184, 166, 0.4),
+                  inset 0 0 0 3px rgba(255, 255, 255, 0.2);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    #home h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: var(--spacing-md);
+      color: var(--text-primary);
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-teal) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 1s ease 0.3s both;
+    }
+
+    #home .subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-xl);
+      font-weight: 400;
+      animation: fadeInUp 1s ease 0.6s both;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: var(--spacing-md);
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 1s ease 0.9s both;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-teal) 0%, var(--accent-cyan) 100%);
+      color: var(--bg-darker);
+      padding: var(--spacing-md) var(--spacing-xl);
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-md);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      background: linear-gradient(135deg, var(--primary-teal-dark) 0%, var(--primary-teal) 100%);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 2px solid var(--border-color);
+      padding: calc(var(--spacing-md) - 2px) var(--spacing-xl);
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary-teal);
+      color: var(--primary-teal);
+      background: rgba(20, 184, 166, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Section Headers */
+    h2 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      margin-bottom: var(--spacing-xl);
+      color: var(--text-primary);
+      font-weight: 600;
+      text-align: center;
+      position: relative;
+      line-height: 1.2;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-teal) 0%, var(--accent-cyan) 100%);
+      border-radius: var(--radius-full);
+    }
+
+    /* Card Styles */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: var(--spacing-xl);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--spacing-lg);
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary-teal) 0%, var(--accent-cyan) 100%);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      background: var(--card-hover);
+      border-color: rgba(20, 184, 166, 0.3);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card h3 {
+      color: var(--text-primary);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Skills */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    .skills-category {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: var(--spacing-xl);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+    }
+
+    .skills-category:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(20, 184, 166, 0.3);
+    }
+
+    .skills-category h3 {
+      color: var(--primary-teal);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: var(--spacing-md);
+    }
+
+    ul.skills {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+    }
+
+    ul.skills li {
+      background: linear-gradient(135deg, var(--primary-teal) 0%, var(--accent-cyan) 100%);
+      color: var(--bg-darker);
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    ul.skills li:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-xl);
+      box-shadow: var(--shadow-md);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      margin-bottom: var(--spacing-md);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+
+    .project-card:hover img {
+      transform: scale(1.05);
+      border-color: var(--primary-teal);
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-teal) 0%, var(--accent-cyan) 100%);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+      border-color: rgba(20, 184, 166, 0.4);
+    }
+
+    .project-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .project-card h3 {
+      color: var(--primary-teal);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .project-card p {
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .project-link {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+
+    .project-link:hover {
+      color: var(--primary-teal);
+      transform: translateX(4px);
+    }
+
+    .project-link::after {
+      content: '→';
+      transition: transform 0.3s ease;
+    }
+
+    .project-link:hover::after {
+      transform: translateX(4px);
+    }
+
+    /* Contact Cards */
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: var(--spacing-xl);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+      .contact-card i {
+      display: block;
+      font-size: 40px;   
+      margin-bottom: 8px;
+    }
+
+    .contact-card.email i { color: #14b8a6; }   
+    .contact-card.linkedin i { color: #14b8a6; } 
+    .contact-card.github i { color: #14b8a6; }  
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary-teal) 0%, var(--accent-cyan) 100%);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(20, 184, 166, 0.3);
+    }
+
+    .contact-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .contact-card p {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-sm);
+      font-size: 1.1rem;
+    }
+
+    .contact-card a {
+      color: var(--primary-teal);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .contact-card a:hover {
+      color: var(--accent-cyan);
+    }
+
+    /* Download Button */
+    .download-section {
+      text-align: center;
+      margin-top: var(--spacing-2xl);
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      background: linear-gradient(135deg, var(--primary-teal) 0%, var(--accent-cyan) 100%);
+      color: var(--bg-darker);
+      padding: var(--spacing-md) var(--spacing-xl);
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-md);
+    }
+
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      background: linear-gradient(135deg, var(--primary-teal-dark) 0%, var(--primary-teal) 100%);
+    }
+
+    .download-btn::before {
+      content: '⬇';
+      font-size: 1.2rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-darker);
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      padding: var(--spacing-2xl) var(--spacing-lg);
+      margin-top: var(--spacing-3xl);
+    }
+
+    footer nav {
+      margin-bottom: var(--spacing-lg);
+    }
+
+    footer nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin: 0 var(--spacing-md);
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    footer nav a:hover {
+      color: var(--primary-teal);
+    }
+
+    footer p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      padding-left: var(--spacing-xl);
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 12px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--primary-teal) 0%, var(--accent-cyan) 100%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -18px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: var(--radius-full);
+      background: var(--primary-teal);
+      box-shadow: 0 0 0 4px var(--bg-dark);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 940px) {
+      header {
+        padding: var(--spacing-md) var(--spacing-lg);
+      }
+
+      header nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: var(--spacing-lg);
+        border-top: 1px solid var(--border-color);
+      }
+
+      header nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      section {
+        padding: var(--spacing-xl) var(--spacing-md);
+      }
+
+      #home {
+        padding-top: 100px;
+      }
+
+      #home img {
+        width: 220px;
+        height: 220px;
+      }
+
+      .contact-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .timeline {
+        padding-left: var(--spacing-lg);
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: var(--spacing-sm) var(--spacing-md);
+      }
+
+      section {
+        padding: var(--spacing-lg) var(--spacing-sm);
+      }
+
+      .card {
+        padding: var(--spacing-lg);
+      }
+
+      .skills-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Scroll reveal animation */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-darker);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary-teal);
+      border-radius: var(--radius-full);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-cyan);
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <div class="logo">Dulce Matei-Ionuț</div>
+    <nav id="nav">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <section id="home">
+    <div class="hero-content">
+      <img src="/images/eu.jpg" alt="Poza profil" />
+      <h1>Dulce Matei-Ionuț</h1>
+      <p class="subtitle">Software Developer</p>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn-primary">Contact</a>
+        <a href="#projects" class="btn-secondary">Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="scroll-reveal">
+    <h2>About</h2>
+    <div class="card">
+      <p>Motivated Junior Software Engineer with a Bachelor’s degree in Computer Science and currently pursuing a Master’s in Cyber Security and Machine Learning. Skilled in C#, .NET, SQL, and Python, with experience developing academic projects ranging from web applications to database-driven systems. Passionate about building reliable and secure software solutions, applying clean coding principles, and learning new technologies. Looking forward to contributing to a dynamic development team while growing into a well-rounded software professional.</p>
+    </div>
+  </section>
+
+  <section id="experience" class="scroll-reveal">
+    <h2>Experience & Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="card">
+          <h3>Bachelor’s Degree in Computer Science</strong> • October 2022 – July 2025</h3>
+          <p><strong>Ovidius University, Constanta - Faculty of Mathematics and Informatics</strong></p>
+          <p>Gained solid foundations in computer science, with practical experience in software design, database systems, and problem-solving.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="card">
+          <h3>Master's Degree in Cyber Security and Machine Learning</strong> • October 2025 – Present</h3>
+          <p><strong>Ovidius University of Constanța – Faculty of Mathematics and Informatics</strong></p>
+          <p>Advanced studies in cyber security, applied cryptography, malware analysis, and secure network systems, combined with machine learning techniques such as neural networks, optimization, and natural language processing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="skills" class="scroll-reveal">
+  <h2>Skills</h2>
+  <div class="skills-container">
+
+    <div class="skills-category">
+      <h3>Technical Skills</h3>
+      <ul class="skills">
+        <li>C#</li>
+        <li>Python</li>
+        <li>Java</li>
+        <li>SQL</li>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li>Bootstrap</li>
+        <li>.NET</li>
+        <li>ASP.NET Core</li>
+        <li>Visual Studio</li>
+        <li>Entity Framework</li>
+        <li>Git</li>
+        <li>MySQL</li>
+        <li>SQL Server</li>
+        <li>RESTful APIs</li>
+        <li>Object-Oriented Programming (OOP)</li>
+        <li>Algorithms</li>
+        <li>Debugging</li>
+      </ul>
+    </div>
+
+    <div class="skills-category">
+      <h3>Soft Skills</h3>
+      <ul class="skills">
+        <li>Problem-Solving & Critical Thinking</li>
+        <li>Team Collaboration & Communication</li>
+        <li>Adaptability & Continuous Learning</li>
+        <li>Attention to Detail</li>
+        <li>Time Management & Organization</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+  <section id="projects" class="scroll-reveal">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="/images/1.png" alt="E-commerce Application" />
+        <h3>Topic Trips Guide</h3>
+        <p>A responsive .NET web application for planning and exploring tourist routes across Europe, highlighting significant historical and culinary locations with personalized itineraries and detailed mini-wiki information.</p>
+        <a href="https://github.com/DulceMatei/Topic-Trips-Guide" class="project-link">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="/images/2.png" alt="Student Management System" />
+        <h3>Face Recognition App</h3>
+        <p>A Python-based facial recognition system developed with PyQt6, OpenCV, and NumPy, featuring multiple algorithms such as Nearest Neighbor, k-Nearest Neighbors, Eigenfaces, Class Representatives, and Lanczos for face identification and comparison using the AT&T (ORL) Face Database.</p>
+        <a href="https://github.com/DulceMatei/Face-Recognition-App" class="project-link">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="/images/3.png" alt="Personal Portfolio Website" />
+        <h3>Bezier and B-Spline Curves</h3>
+        <p>A Python-based graphical application built with PyQt5 and Matplotlib that enables users to create, edit, and visualize Bezier and B-Spline curves by importing control points from a .txt file or adding them interactively through the interface.</p>
+        <a href="https://github.com/DulceMatei/Bezier-and-B-Spline-Curves" class="project-link">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="/images/4.png" alt="Blog REST API" />
+        <h3>Student Enrollment App</h3>
+        <p>A C# Windows Forms application (Visual Studio 2022 Community) for managing student enrollments with a local Access database.</p>
+        <a href="https://github.com/DulceMatei/student-enrollment" class="project-link">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="/images/5.png" alt="Blog REST API" />
+        <h3>European Capitals Pathfinder</h3>
+        <p>A C# project (Visual Studio 2022) that visualizes and compares BFS and A* algorithms for finding routes between European capitals.</p>
+        <a href="https://github.com/DulceMatei/european-capitals-pathfinder" class="project-link">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="scroll-reveal">
+    <h2>Contact</h2>
+    <div class="contact-cards">
+      <div class="contact-card email">
+        <i class="fa-solid fa-envelope"></i>
+        <p>Email</p>
+        <a href="mailto:matei_dulce@yahoo.com">matei_dulce@yahoo.com</a>
+      </div>
+
+      <div class="contact-card linkedin">
+        <i class="fa-brands fa-linkedin"></i>
+        <p>LinkedIn</p>
+        <a href="https://www.linkedin.com/in/matei-ionut-dulce-2234a3282">linkedin.com/in/dulce-matei</a>
+      </div>
+
+      <div class="contact-card github">
+        <i class="fa-brands fa-github"></i>
+        <p>GitHub</p>
+        <a href="https://github.com/DulceMatei">github.com/DulceMatei</a>
+      </div>
+    </div>
+    <div class="download-section">
+      <a class="download-btn" href="/assets/CV-Dulce-Matei-Ionuț.pdf" download>Download CV</a>
+    </div>
+  </section>
+
+  <footer>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </footer>
+
+  <script>
+    // Smooth scroll reveal animation
+    function observeElements() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      document.querySelectorAll('.scroll-reveal').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    // Header scroll effect
+    function handleHeaderScroll() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+
+    // Active navigation link
+    function updateActiveNav() {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Mobile menu toggle
+    function setupMobileMenu() {
+      const menuToggle = document.getElementById('menuToggle');
+      const nav = document.getElementById('nav');
+      
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+
+      // Close menu when clicking on a link
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+          menuToggle.classList.remove('active');
+        });
+      });
+    }
+
+    // Card hover effects with stagger
+    function setupCardAnimations() {
+      const cards = document.querySelectorAll('.project-card, .contact-card, .card');
+      cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+      });
+    }
+
+    // Parallax effect for hero section
+    function setupParallax() {
+      const hero = document.getElementById('home');
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        hero.style.transform = `translateY(${rate}px)`;
+      });
+    }
+
+    // Initialize all features
+    document.addEventListener('DOMContentLoaded', () => {
+      observeElements();
+      setupMobileMenu();
+      setupCardAnimations();
+      setupParallax();
+      
+      window.addEventListener('scroll', () => {
+        handleHeaderScroll();
+        updateActiveNav();
+      });
+
+      // Add stagger animation to sections
+      const sections = document.querySelectorAll('section');
+      sections.forEach((section, index) => {
+        section.style.animationDelay = `${index * 0.2}s`;
+      });
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add loading animation
+    window.addEventListener('load', () => {
+      document.body.style.opacity = '0';
+      document.body.style.transition = 'opacity 0.5s ease';
+      setTimeout(() => {
+        document.body.style.opacity = '1';
+      }, 100);
+    });
+  </script>
+</body>
+</html>
