@@ -170,41 +170,9 @@
     }
 
     #home::before {
-  background: radial-gradient(circle at 30% 50%, rgba(20, 184, 166, 0.05) 0%, transparent 50%),
-              radial-gradient(circle at 70% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
-}
-
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--spacing-lg);
-      margin-top: var(--spacing-xl);
+      background: radial-gradient(circle at 30% 50%, rgba(20, 184, 166, 0.05) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
     }
-
-    .project-card img {
-      width: 100%;
-      aspect-ratio: 4 / 3; 
-      object-fit: cover;
-      border-radius: var(--radius-md);
-      margin-bottom: var(--spacing-md);
-      transition: all 0.3s ease;
-      border: 1px solid var(--border-color);
-    }
-
-    @media (max-width: 768px) {
-      .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .project-card img {
-        aspect-ratio: auto; 
-        height: 200px;      
-      }
-    }
-
-
 
     #home .hero-content {
       position: relative;
@@ -401,6 +369,22 @@
       margin-bottom: 0;
     }
 
+    /* List styling inside Cards (for Achievements/Responsibilities) */
+    .card ul {
+      margin-top: var(--spacing-sm);
+      margin-left: var(--spacing-xl);
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .card ul li {
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .card ul li strong {
+      color: var(--text-primary);
+    }
+
     /* Skills */
     .skills-container {
       display: grid;
@@ -471,6 +455,8 @@
       transition: all 0.4s ease;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .project-card img {
@@ -522,7 +508,8 @@
       margin-bottom: var(--spacing-md);
     }
 
-    .project-link {
+    .project-card .project-link {
+      margin-top: auto; /* Aligns the link to the bottom */
       color: var(--accent-cyan);
       text-decoration: none;
       font-weight: 500;
@@ -533,17 +520,17 @@
       gap: var(--spacing-xs);
     }
 
-    .project-link:hover {
+    .project-card .project-link:hover {
       color: var(--primary-teal);
       transform: translateX(4px);
     }
 
-    .project-link::after {
+    .project-card .project-link::after {
       content: '→';
       transition: transform 0.3s ease;
     }
 
-    .project-link:hover::after {
+    .project-card .project-link:hover::after {
       transform: translateX(4px);
     }
 
@@ -567,7 +554,7 @@
       overflow: hidden;
     }
 
-      .contact-card i {
+    .contact-card i {
       display: block;
       font-size: 40px;   
       margin-bottom: 8px;
@@ -841,7 +828,7 @@
     <div class="hero-content">
       <img src="images/eu.jpg" alt="Poza profil" />
       <h1>Dulce Matei-Ionuț</h1>
-      <p class="subtitle">Software Developer</p>
+      <p class="subtitle">Junior Software Engineer</p>
       <div class="cta-buttons">
         <a href="#contact" class="btn-primary">Contact</a>
         <a href="#projects" class="btn-secondary">Projects</a>
@@ -850,109 +837,179 @@
   </section>
 
   <section id="about" class="scroll-reveal">
-    <h2>About</h2>
+    <h2>About Me</h2>
     <div class="card">
-      <p>Motivated Junior Software Engineer with a Bachelor’s degree in Computer Science and currently pursuing a Master’s in Cyber Security and Machine Learning. Skilled in C#, .NET, SQL, and Python, with experience developing academic projects ranging from web applications to database-driven systems. Passionate about building reliable and secure software solutions, applying clean coding principles, and learning new technologies. Looking forward to contributing to a dynamic development team while growing into a well-rounded software professional.</p>
+      <p>Motivated Junior Software Engineer and MSc student in Cyber Security & Machine Learning (Ovidius University '27), with hands-on practical experience in .NET backend architecture and applied cybersecurity. Skilled in C#, Python, and SQL, with a strong focus on building reliable, secure software solutions. Passionate about clean coding principles, integrating security into the development lifecycle, and continuous learning.</p>
     </div>
   </section>
 
   <section id="experience" class="scroll-reveal">
     <h2>Experience & Education</h2>
     <div class="timeline">
+      
       <div class="timeline-item">
         <div class="card">
-          <h3>Bachelor’s Degree in Computer Science</strong> • October 2022 – July 2025</h3>
-          <p><strong>Ovidius University, Constanta - Faculty of Mathematics and Informatics</strong></p>
-          <p>Gained solid foundations in computer science, with practical experience in software design, database systems, and problem-solving.</p>
+          <h3>Cybersecurity Intern • Mar 2026 – Present</h3>
+          <p><strong>Universitatea OVIDIUS din Constanta</strong></p>
+          <p>The "PracTIC@UOC" project is an EU-funded initiative designed to bridge academic studies with real-world IT industry requirements. Selected for this competitive internship to gain hands-on experience in applied cybersecurity (Red Team, Blue Team, DevSecOps).</p>
+          <ul>
+            <li><strong>Key Achievements:</strong> Executed penetration tests on simulated enterprise environments (network, AD, web apps) and designed defensive architectures by integrating logs (Sysmon, Suricata) into a centralized Wazuh SIEM.</li>
+            <li><strong>Core Responsibilities:</strong> Conduct threat hunting, analyze system logs, and perform ethical hacking using tools like Nmap, Burp Suite, and Hashcat. Implement automated security checks in GitLab CI/CD pipelines (SAST/DAST).</li>
+          </ul>
         </div>
       </div>
+
       <div class="timeline-item">
         <div class="card">
-          <h3>Master's Degree in Cyber Security and Machine Learning</strong> • October 2025 – Present</h3>
+          <h3>Backend .NET Practical Placement • Nov 2023 – Jun 2024</h3>
+          <p><strong>Cornerstone Technologies International</strong></p>
+          <p>Cornerstone Technologies International is a software development and IT services company focused on delivering innovative technological solutions.</p>
+          <ul>
+            <li><strong>Key Achievements:</strong> Developed and integrated RESTful APIs for user authentication and core business logic for a complex e-commerce platform. Designed and optimized the database architecture from scratch using Entity Framework Core.</li>
+            <li><strong>Core Responsibilities:</strong> Implemented the Data Access Layer (DAL), wrote clean, scalable C# code following OOP principles, and managed version control via Git/GitHub while participating in technical code reviews.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="card">
+          <h3>Master's Degree in Cyber Security and Machine Learning • Oct 2025 – Jul 2027</h3>
           <p><strong>Ovidius University of Constanța – Faculty of Mathematics and Informatics</strong></p>
           <p>Advanced studies in cyber security, applied cryptography, malware analysis, and secure network systems, combined with machine learning techniques such as neural networks, optimization, and natural language processing.</p>
         </div>
       </div>
+
+      <div class="timeline-item">
+        <div class="card">
+          <h3>Bachelor’s Degree in Computer Science • Oct 2022 – Jul 2025</h3>
+          <p><strong>Ovidius University, Constanta - Faculty of Mathematics and Informatics</strong></p>
+          <p>Gained solid foundations in computer science, with practical experience in software design, database systems, and problem-solving.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
-<section id="skills" class="scroll-reveal">
-  <h2>Skills</h2>
-  <div class="skills-container">
+  <section id="skills" class="scroll-reveal">
+    <h2>Skills & Certifications</h2>
+    <div class="skills-container">
 
-    <div class="skills-category">
-      <h3>Technical Skills</h3>
-      <ul class="skills">
-        <li>C#</li>
-        <li>Python</li>
-        <li>Java</li>
-        <li>SQL</li>
-        <li>HTML5</li>
-        <li>CSS3</li>
-        <li>JavaScript</li>
-        <li>Bootstrap</li>
-        <li>.NET</li>
-        <li>ASP.NET Core</li>
-        <li>Visual Studio</li>
-        <li>Entity Framework</li>
-        <li>Git</li>
-        <li>MySQL</li>
-        <li>SQL Server</li>
-        <li>RESTful APIs</li>
-        <li>Object-Oriented Programming (OOP)</li>
-        <li>Algorithms</li>
-        <li>Debugging</li>
-      </ul>
+      <div class="skills-category">
+        <h3>Technical Skills</h3>
+        <ul class="skills">
+          <li>C#</li>
+          <li>Python</li>
+          <li>Java</li>
+          <li>SQL</li>
+          <li>HTML/CSS</li>
+          <li>JavaScript</li>
+          <li>Bootstrap</li>
+        </ul>
+      </div>
+
+      <div class="skills-category">
+        <h3>Frameworks & Tools</h3>
+        <ul class="skills">
+          <li>.NET / ASP.NET Core</li>
+          <li>Entity Framework</li>
+          <li>Visual Studio</li>
+          <li>Git / GitHub</li>
+          <li>MySQL / SQL Server</li>
+        </ul>
+      </div>
+
+      <div class="skills-category">
+        <h3>Cybersecurity & Cloud</h3>
+        <ul class="skills">
+          <li>Penetration Testing</li>
+          <li>SIEM (Wazuh)</li>
+          <li>DevSecOps (CI/CD)</li>
+          <li>Incident Response</li>
+          <li>Nmap / Burp Suite</li>
+          <li>Microsoft Azure</li>
+        </ul>
+      </div>
+
+      <div class="skills-category">
+        <h3>Core Competencies</h3>
+        <ul class="skills">
+          <li>RESTful APIs</li>
+          <li>OOP</li>
+          <li>Data Structures</li>
+          <li>Algorithms</li>
+          <li>Secure Coding</li>
+          <li>Debugging</li>
+        </ul>
+      </div>
+
+      <div class="skills-category">
+        <h3>Soft Skills</h3>
+        <ul class="skills">
+          <li>Problem-Solving</li>
+          <li>Critical Thinking</li>
+          <li>Team Collaboration</li>
+          <li>Adaptability</li>
+          <li>Time Management</li>
+        </ul>
+      </div>
+
+      <div class="skills-category">
+        <h3>Certifications</h3>
+        <ul class="skills">
+          <li>Microsoft Certified: Azure Fundamentals (Jul 2023)</li>
+          <li>100 Days of Code: Complete Python Pro Bootcamp (Nov 2025)</li>
+        </ul>
+      </div>
+
     </div>
-
-    <div class="skills-category">
-      <h3>Soft Skills</h3>
-      <ul class="skills">
-        <li>Problem-Solving & Critical Thinking</li>
-        <li>Team Collaboration & Communication</li>
-        <li>Adaptability & Continuous Learning</li>
-        <li>Attention to Detail</li>
-        <li>Time Management & Organization</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
+  </section>
 
   <section id="projects" class="scroll-reveal">
     <h2>Projects</h2>
     <div class="projects-grid">
+      
       <div class="project-card">
-        <img src="images/1.png" alt="E-commerce Application" />
+        <img src="images/1.png" alt="Topic Trips Guide" />
         <h3>Topic Trips Guide</h3>
-        <p>A responsive .NET web application for planning and exploring tourist routes across Europe, highlighting significant historical and culinary locations with personalized itineraries and detailed mini-wiki information.</p>
+        <p>A web application for planning and exploring personalized tourist routes, focusing on significant historical and culinary locations in Europe.</p>
+        <p><strong>Tech Stack:</strong> C#, ASP.NET Core, HTML, CSS, JavaScript, Bootstrap, MySQL/SQL Server.</p>
+        <p><strong>Key Features:</strong> Engineered custom user routing based on predefined itineraries or historical figures' lives. Integrated a dynamic mini-wiki component providing detailed historical context and image retrieval.</p>
         <a href="https://github.com/DulceMatei/Topic-Trips-Guide" class="project-link">View Project</a>
       </div>
+
       <div class="project-card">
-        <img src="images/2.png" alt="Student Management System" />
+        <img src="images/2.png" alt="Face Recognition App" />
         <h3>Face Recognition App</h3>
-        <p>A Python-based facial recognition system developed with PyQt6, OpenCV, and NumPy, featuring multiple algorithms such as Nearest Neighbor, k-Nearest Neighbors, Eigenfaces, Class Representatives, and Lanczos for face identification and comparison using the AT&T (ORL) Face Database.</p>
+        <p>A Python-based facial recognition system implementing multiple algorithms for identifying and comparing human faces.</p>
+        <p><strong>Tech Stack:</strong> Python, PyQt6, OpenCV, NumPy.</p>
+        <p><strong>Key Features:</strong> Successfully implemented, tested, and visualized advanced classification algorithms including Nearest Neighbor (NN), k-NN, Eigenfaces, Class Representatives, and Lanczos using the AT&T Face Database.</p>
         <a href="https://github.com/DulceMatei/Face-Recognition-App" class="project-link">View Project</a>
       </div>
+
       <div class="project-card">
-        <img src="images/3.png" alt="Personal Portfolio Website" />
-        <h3>Bezier and B-Spline Curves</h3>
-        <p>A Python-based graphical application built with PyQt5 and Matplotlib that enables users to create, edit, and visualize Bezier and B-Spline curves by importing control points from a .txt file or adding them interactively through the interface.</p>
+        <img src="images/3.png" alt="Computational Geometry Visualizer" />
+        <h3>Computational Geometry Visualizer</h3>
+        <p>A graphical application that allows users to seamlessly visualize and interact with Bezier and B-Spline curves.</p>
+        <p><strong>Tech Stack:</strong> Python, PyQt5, Matplotlib.</p>
+        <p><strong>Key Features:</strong> Developed real-time rendering and interactive manipulation of complex geometric curves for academic demonstration purposes.</p>
         <a href="https://github.com/DulceMatei/Bezier-and-B-Spline-Curves" class="project-link">View Project</a>
       </div>
+
       <div class="project-card">
-        <img src="images/4.png" alt="Blog REST API" />
+        <img src="images/4.png" alt="Student Enrollment App" />
         <h3>Student Enrollment App</h3>
         <p>A C# Windows Forms application (Visual Studio 2022 Community) for managing student enrollments with a local Access database.</p>
-        <a href="https://github.com/DulceMatei/student-enrollment" class="project-link">View Project</a>
+        <br> <a href="https://github.com/DulceMatei/student-enrollment" class="project-link">View Project</a>
       </div>
+
       <div class="project-card">
-        <img src="images/5.png" alt="Blog REST API" />
+        <img src="images/5.png" alt="European Capitals Pathfinder" />
         <h3>European Capitals Pathfinder</h3>
         <p>A C# project (Visual Studio 2022) that visualizes and compares BFS and A* algorithms for finding routes between European capitals.</p>
+        <br>
         <a href="https://github.com/DulceMatei/european-capitals-pathfinder" class="project-link">View Project</a>
       </div>
+
     </div>
   </section>
 
@@ -978,7 +1035,7 @@
       </div>
     </div>
     <div class="download-section">
-      <a class="download-btn" href="assets/CV-Dulce-Matei-Ionuț.pdf" download>Download CV</a>
+      <a class="download-btn" href="assets/CV_Matei_Ionut_Dulce.pdf" download>Download CV</a>
     </div>
   </section>
 
@@ -991,6 +1048,7 @@
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
+    <p>© 2026 Dulce Matei-Ionuț. All rights reserved.</p>
   </footer>
 
   <script>
