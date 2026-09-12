@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary-teal: #14B8A6;
@@ -43,6 +43,16 @@
       --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
       --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
       --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+      --font-display: 'Space Grotesk', 'Inter', sans-serif;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
 
     * {
@@ -86,8 +96,10 @@
     }
 
     header .logo {
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: 1.25rem;
+      letter-spacing: -0.01em;
       color: var(--primary-teal);
       transition: all 0.3s ease;
     }
@@ -146,12 +158,13 @@
       padding: var(--spacing-3xl) var(--spacing-lg);
       max-width: 1200px;
       margin: 0 auto;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.8s ease forwards;
     }
 
     @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
       to {
         opacity: 1;
         transform: translateY(0);
@@ -296,11 +309,12 @@
 
     /* Section Headers */
     h2 {
+      font-family: var(--font-display);
       font-size: clamp(2rem, 4vw, 2.5rem);
       margin-bottom: var(--spacing-xl);
       color: var(--text-primary);
       font-weight: 600;
-      text-align: center;
+      text-align: left;
       position: relative;
       line-height: 1.2;
     }
@@ -308,13 +322,16 @@
     h2::after {
       content: '';
       position: absolute;
-      bottom: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
+      bottom: -10px;
+      left: 2px;
+      width: 40px;
       height: 3px;
-      background: linear-gradient(90deg, var(--primary-teal) 0%, var(--accent-cyan) 100%);
+      background: var(--primary-teal);
       border-radius: var(--radius-full);
+    }
+
+    .card h3, .project-card h3, .skills-category h3 {
+      font-family: var(--font-display);
     }
 
     /* Card Styles */
@@ -337,8 +354,9 @@
       left: 0;
       right: 0;
       height: 2px;
-      background: linear-gradient(90deg, var(--primary-teal) 0%, var(--accent-cyan) 100%);
+      background: var(--primary-teal);
       transform: scaleX(0);
+      transform-origin: left;
       transition: transform 0.3s ease;
     }
 
@@ -423,19 +441,21 @@
     }
 
     ul.skills li {
-      background: linear-gradient(135deg, var(--primary-teal) 0%, var(--accent-cyan) 100%);
-      color: var(--bg-darker);
+      background: rgba(20, 184, 166, 0.08);
+      border: 1px solid rgba(20, 184, 166, 0.35);
+      color: var(--text-secondary);
       padding: var(--spacing-sm) var(--spacing-md);
-      border-radius: var(--radius-full);
+      border-radius: var(--radius-md);
       font-size: 0.9rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
+      font-weight: 500;
+      transition: all 0.2s ease;
       cursor: default;
     }
 
     ul.skills li:hover {
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: var(--shadow-md);
+      background: rgba(20, 184, 166, 0.16);
+      border-color: var(--primary-teal);
+      color: var(--text-primary);
     }
 
     /* Projects Grid */
@@ -481,8 +501,9 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, var(--primary-teal) 0%, var(--accent-cyan) 100%);
+      background: var(--primary-teal);
       transform: scaleX(0);
+      transform-origin: left;
       transition: transform 0.3s ease;
     }
 
@@ -813,7 +834,8 @@
       <a href="#home" class="nav-link">Home</a>
       <a href="#about" class="nav-link">About</a>
       <a href="#experience" class="nav-link">Experience</a>
-      <a href="#education" class="nav-link">Education</a> <a href="#skills" class="nav-link">Skills</a>
+      <a href="#education" class="nav-link">Education</a>
+      <a href="#awards" class="nav-link">Awards</a> <a href="#skills" class="nav-link">Skills</a>
       <a href="#projects" class="nav-link">Projects</a>
       <a href="#contact" class="nav-link">Contact</a>
     </nav>
@@ -839,22 +861,34 @@
   <section id="about" class="scroll-reveal">
     <h2>About Me</h2>
     <div class="card">
-      <p>Motivated Junior Software Engineer and MSc student in Cyber Security & Machine Learning (Ovidius University '27), with hands-on practical experience in .NET backend architecture and applied cybersecurity. Skilled in C#, Python, and SQL, with a strong focus on building reliable, secure software solutions. Passionate about clean coding principles, integrating security into the development lifecycle, and continuous learning.</p>
+      <p>Junior Software Engineer and MSc student in Cyber Security & Machine Learning (Ovidius University, '27), with hands-on experience across .NET and Python backends, applied cybersecurity, and AI security engineering. I've built RESTful APIs and IAM modules, run penetration tests and SIEM detections, and audited LLM systems against prompt injection — with the same focus throughout: reliable, secure-by-design software. Outside of internships, I've led the tech side of a 1st-place startup team and prototyped AI products at hackathons.</p>
     </div>
   </section>
 
   <section id="experience" class="scroll-reveal">
     <h2>Experience</h2>
     <div class="timeline">
-      
+
       <div class="timeline-item">
         <div class="card">
-          <h3>Cybersecurity Intern • Dec 2025 – Present</h3>
-          <p><strong>Universitatea OVIDIUS din Constanta</strong></p>
+          <h3>AI & Security Engineering Bootcamp • Jul 2026 – Aug 2026</h3>
+          <p><strong>CG Tech Labs</strong> · Remote</p>
+          <p>An intensive, hands-on bootcamp focused on advanced AI security, full-stack development, and Identity and Access Management (IAM) for public administration systems.</p>
+          <ul>
+            <li><strong>Key Achievements:</strong> Executed 318 live security audits on OpenAI and Gemini, deploying prompt injection defenses that mitigated 100% of tested vulnerabilities. Secured 101 backend API routes against data leaks and hardened execution constraints on Redis and MinIO.</li>
+            <li><strong>Core Responsibilities:</strong> Engineered a full-stack IAM module in Next.js for 30+ public administration users, redesigning session validation to close unauthorized-access gaps. Directed business analysis via MoSCoW prioritization in a 20-hour sprint.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="card">
+          <h3>Cybersecurity Intern • Dec 2025 – Jun 2026</h3>
+          <p><strong>Universitatea OVIDIUS din Constanta</strong> · Remote</p>
           <p>The "PracTIC@UOC" project is an EU-funded initiative designed to bridge academic studies with real-world IT industry requirements. Selected for this competitive internship to gain hands-on experience in applied cybersecurity (Red Team, Blue Team, DevSecOps).</p>
           <ul>
-            <li><strong>Key Achievements:</strong> Executed penetration tests on simulated enterprise environments (network, AD, web apps) and designed defensive architectures by integrating logs (Sysmon, Suricata) into a centralized Wazuh SIEM.</li>
-            <li><strong>Core Responsibilities:</strong> Conduct threat hunting, analyze system logs, and perform ethical hacking using tools like Nmap, Burp Suite, and Hashcat. Implement automated security checks in GitLab CI/CD pipelines (SAST/DAST).</li>
+            <li><strong>Key Achievements:</strong> Performed penetration testing across 3 enterprise environments (Active Directory, web apps), integrating Sysmon and Suricata telemetry into Wazuh SIEM for full threat visibility. Automated SAST/DAST checks in GitLab CI/CD pipelines.</li>
+            <li><strong>Core Responsibilities:</strong> Conducted threat hunting and incident response, applied CIS Benchmarks hardening on Windows/Linux servers, and audited AWS cloud infrastructure with Prowler. Performed OSINT, privilege escalation, and credential harvesting using Nmap, Burp Suite, and Hashcat.</li>
           </ul>
         </div>
       </div>
@@ -887,11 +921,25 @@
 
       <div class="timeline-item">
         <div class="card">
-          <h3>Bachelor’s Degree in Computer Science • Oct 2022 – Jul 2025</h3>
+          <h3>Bachelor's Degree in Computer Science • Oct 2022 – Jul 2025</h3>
           <p><strong>Ovidius University of Constanța - Faculty of Mathematics and Informatics</strong></p>
           <p>Gained solid foundations in computer science, with practical experience in software design, database systems, and problem-solving.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="awards" class="scroll-reveal">
+    <h2>Awards & Achievements</h2>
+    <div class="card">
+      <h3>1st Place Winner — Techstars Startup Weekend Constanța</h3>
+      <p><strong>Apr 2026</strong> · Tech & Strategy Lead</p>
+      <p>Won 1st place out of multiple teams in a 54-hour hackathon as Tech & Strategy Lead for <strong>UniEvents</strong>, a centralized events and recruitment platform for students. Designed the application architecture, event-matchmaking algorithms, and automated profile analysis.</p>
+    </div>
+    <div class="card">
+      <h3>Participant — Hack A Ton AI Agent Hackathon, Mamaia</h3>
+      <p><strong>Jun 2026</strong> · 3-person team</p>
+      <p>Prototyped and pitched <strong>Graduation Concierge (Planora)</strong>, a conversational AI platform for graduation package bookings, in a 48-hour hackathon. Built the backend and AI agent logic for natural-language intent extraction and real-time cart assembly on Python, FastAPI, and React.</p>
     </div>
   </section>
 
@@ -917,9 +965,11 @@
         <ul class="skills">
           <li>.NET / ASP.NET Core</li>
           <li>Entity Framework</li>
-          <li>Visual Studio</li>
+          <li>FastAPI</li>
+          <li>Next.js / React</li>
+          <li>Tailwind CSS</li>
           <li>Git / GitHub</li>
-          <li>MySQL / SQL Server</li>
+          <li>MySQL / SQL Server / PostgreSQL</li>
         </ul>
       </div>
 
@@ -931,7 +981,19 @@
           <li>DevSecOps (CI/CD)</li>
           <li>Incident Response</li>
           <li>Nmap / Burp Suite</li>
+          <li>AWS Auditing (Prowler)</li>
           <li>Microsoft Azure</li>
+        </ul>
+      </div>
+
+      <div class="skills-category">
+        <h3>AI Security & LLMs</h3>
+        <ul class="skills">
+          <li>Prompt Injection Defense</li>
+          <li>LLM Security Audits</li>
+          <li>Identity & Access Management</li>
+          <li>Redis / MinIO</li>
+          <li>Computer Vision (OpenCV)</li>
         </ul>
       </div>
 
@@ -972,7 +1034,7 @@
   <section id="projects" class="scroll-reveal">
     <h2>Projects</h2>
     <div class="projects-grid">
-      
+
       <div class="project-card">
         <img src="images/1.png" alt="Topic Trips Guide" />
         <h3>Topic Trips Guide</h3>
@@ -1049,7 +1111,8 @@
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
-      <a href="#education">Education</a> <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#awards">Awards</a> <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -1134,32 +1197,15 @@
       });
     }
 
-    // Parallax effect for hero section
-    function setupParallax() {
-      const hero = document.getElementById('home');
-      window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.5;
-        hero.style.transform = `translateY(${rate}px)`;
-      });
-    }
-
     // Initialize all features
     document.addEventListener('DOMContentLoaded', () => {
       observeElements();
       setupMobileMenu();
       setupCardAnimations();
-      setupParallax();
-      
+
       window.addEventListener('scroll', () => {
         handleHeaderScroll();
         updateActiveNav();
-      });
-
-      // Add stagger animation to sections
-      const sections = document.querySelectorAll('section');
-      sections.forEach((section, index) => {
-        section.style.animationDelay = `${index * 0.2}s`;
       });
     });
 
